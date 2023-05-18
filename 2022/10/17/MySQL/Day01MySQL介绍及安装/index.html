@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Mysql介绍及安装(1) | 男孩博客の李上网来</title><meta name="author" content="LQ NBA"><meta name="copyright" content="LQ NBA"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql介绍及安装(1)">
+<meta property="og:url" content="https://liqigg.github.io/2022/10/17/MySQL/Day01MySQL%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="男孩博客の李上网来">
+<meta property="og:description" content="Mysql">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img1.baidu.com/it/u=2454297052,3299817823&fm=253&fmt=auto&app=138&f=JPEG?w=870&h=500">
+<meta property="article:published_time" content="2022-10-16T16:27:00.000Z">
+<meta property="article:modified_time" content="2022-10-16T16:27:00.000Z">
+<meta property="article:author" content="LQ NBA">
+<meta property="article:tag" content="Mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.baidu.com/it/u=2454297052,3299817823&fm=253&fmt=auto&app=138&f=JPEG?w=870&h=500"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://liqigg.github.io/2022/10/17/MySQL/Day01MySQL%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LQ NBA","link":"链接: ","source":"来源: 男孩博客の李上网来","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Mysql介绍及安装(1)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-10-17 00:27:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/cat.css"><div id="myscoll"></div><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img1.baidu.com/it/u=2454297052,3299817823&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=870&amp;h=500')"><nav id="nav"><span id="blog-info"><a href="/" title="男孩博客の李上网来"><span class="site-name">男孩博客の李上网来</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Mysql介绍及安装(1)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-16T16:27:00.000Z" title="发表于 2022-10-17 00:27:00">2022-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-16T16:27:00.000Z" title="更新于 2022-10-17 00:27:00">2022-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/">Mysql数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Mysql介绍及安装(1)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[TOC]</p>
+<h1 id="MySQL介绍及安装"><a href="#MySQL介绍及安装" class="headerlink" title="MySQL介绍及安装"></a>MySQL介绍及安装</h1><h2 id="DBA工作内容及课程体系"><a href="#DBA工作内容及课程体系" class="headerlink" title="DBA工作内容及课程体系"></a>DBA工作内容及课程体系</h2><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132645751.png" alt="image-20230517132645751"></p>
+<h2 id="MySQL课程体系介绍"><a href="#MySQL课程体系介绍" class="headerlink" title="MySQL课程体系介绍"></a>MySQL课程体系介绍</h2><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132712939.png" alt="image-20230517132712939"></p>
+<h2 id="DBA的职业素养"><a href="#DBA的职业素养" class="headerlink" title="DBA的职业素养"></a>DBA的职业素养</h2><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132729374.png" alt="image-20230517132729374"></p>
+<h2 id="MySQL简介及安装"><a href="#MySQL简介及安装" class="headerlink" title="MySQL简介及安装"></a>MySQL简介及安装</h2><h3 id="什么是数据"><a href="#什么是数据" class="headerlink" title="什么是数据"></a>什么是数据</h3><p>数据(data)是事实或观察的结果，是对客观事物的逻辑归纳，是用于表示客观事物的未经加工的的原始素材。 数据可以是连续的值，比如声音、图像，称为模拟数据。也可以是离散的，如符号、文字，称为数字数据。 在计算机系统中，数据以二进制信息单元0,1的形式表示。  </p>
+<p>数据的定义: 数据是指对客观事件进行记录并可以鉴别的符号，是对客观事物的性质、状态以及相互关系等进行记载的物理符号或这些物理符号的组合。它是可识别的、抽象的符号。*</p>
+<h3 id="什么是数据库管理系统"><a href="#什么是数据库管理系统" class="headerlink" title="什么是数据库管理系统"></a>什么是数据库管理系统</h3><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132753091.png" alt="image-20230517132753091"></p>
+<h3 id="数据库系统种类"><a href="#数据库系统种类" class="headerlink" title="数据库系统种类"></a>数据库系统种类</h3><p><strong>RDBMS</strong></p>
+<p>以多张二维表的方式来存储，又给多张表建立了一定的关系（关系型数据库）</p>
+<p>数据库管理系统</p>
+<p>DBNS</p>
+<ul>
+<li>存数据</li>
+<li>取数据</li>
+</ul>
+<p>数据库管理系统类型</p>
+<ul>
+<li>关系型数据库（RDBMS）</li>
+<li>使用SOL语句管理数据库</li>
+<li>互相关联的二维表组成</li>
+<li>最大特点数据安全性方面强（ACID）</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132809846.png" alt="image-20230517132809846"></p>
+<p><strong>NoSQL</strong></p>
+<ul>
+<li>非关系型数据库（NoSQL）</li>
+<li>一般来说由Json格式</li>
+<li>Key：Value 键值对</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132823383.png" alt="image-20230517132823383"></p>
+<h3 id="RDBMS与NoSQL对比"><a href="#RDBMS与NoSQL对比" class="headerlink" title="RDBMS与NoSQL对比"></a>RDBMS与NoSQL对比</h3><p>关系型数据库和非关系型数据库对比</p>
+<p>功能性能对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132836271.png" alt="image-20230517132836271"></p>
+<p>特点对比</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关系型数据库（RDBMS）的特点:</span></span><br><span class="line"></span><br><span class="line">1.二维表</span><br><span class="line">2.典型产品Oracle传统企业，MySQL互联网企业</span><br><span class="line">3.数据存取是通过SQL（Structured Query Language结构化查询语言）</span><br><span class="line">4.最大特点数据安全性方面强（ACID）</span><br><span class="line"></span><br><span class="line"><span class="comment">#非关系型数据库（NoSQL: NotonlySQL）的特点</span></span><br><span class="line"></span><br><span class="line">1.不是否定关系型数据库，而是做关系型数据库的补充。</span><br><span class="line">2.想做老大，先学会做老二。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">####时代特点对比</span></span><br><span class="line"></span><br><span class="line">1. web1.0时代</span><br><span class="line">  1.1 企业提供内容，用户浏览，所以关系型数据库够用，并发并不高，所以不需要nosql。</span><br><span class="line"></span><br><span class="line">2. web2.0时代</span><br><span class="line">  2.1 核心是企业提供平台，用户参与提供内容，这个时代关系型数据库无法满足需求了。</span><br><span class="line">  </span><br><span class="line">3. 2003NoSQL出现</span><br><span class="line">  3.1 memcache的诞生，关注的点是性能，但是针对安全性能关注比较低，随着安全性能需求不断提升，所以有了redis。</span><br><span class="line"> </span><br><span class="line">4. redis的特点</span><br><span class="line">  4.1 依然高性能高并发</span><br><span class="line">  4.2 数据持久化功能</span><br><span class="line">  4.3 支持多数据类型，主从复制和集群</span><br><span class="line">  4.4 管理不再使用SQL了</span><br><span class="line">  </span><br><span class="line">关系型数据库典型产品</span><br><span class="line">MySQL</span><br><span class="line">Oracle</span><br><span class="line">MSSQL（SQLserver）</span><br><span class="line">PostgreSQL</span><br><span class="line">非关系型数据库典型产品</span><br><span class="line">Redis</span><br><span class="line">elasticsearch （ELK）</span><br><span class="line">MangoDB  </span><br></pre></td></tr></table></figure>
+
+<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h2><h3 id="MySQL安装方式"><a href="#MySQL安装方式" class="headerlink" title="MySQL安装方式"></a>MySQL安装方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.rpm,yum安装</span></span><br><span class="line">安装方面</span><br><span class="line">安装速度快，无法定制</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.二进制</span></span><br><span class="line">不需要安装</span><br><span class="line">解压即可使用，不能定制功能</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.编译安装</span></span><br><span class="line">  3.1 可定制，安装慢</span><br><span class="line">  3.2 四个步骤：</span><br><span class="line">    3.2.1 解压（tar）</span><br><span class="line">    3.2.2 生成（./configure）cmake</span><br><span class="line">    3.2.3 编译（make）</span><br><span class="line">    3.2.4 安装（make install）</span><br><span class="line">  3.3  5.5版本之前：tar ./configure make make install</span><br><span class="line">  3.4  5.5版本之后：cmake gmake</span><br><span class="line"></span><br><span class="line">4. 先编译，然后定制rpm包，制作yum仓库，然后yum安装</span><br><span class="line">  4.1 简单，速度快，可定制，比较复杂，制作时间极长</span><br><span class="line"></span><br><span class="line">5. 企业中选择的安装方式</span><br><span class="line">  5.1 中小型企业：以上方式都可以，运维偏向编译，dba偏向二进制 运维也偏向二进制</span><br><span class="line">  5.2 大型企业：可以选择: 先编译然后定制rpm包，制作yum仓库，然后yum安装</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>yum安装</li>
+<li>源码安装</li>
+<li>二进制安装</li>
+</ul>
+<p>版本选择</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.mysql.com/">https://www.mysql.com/</a></p>
+<p>MySQL5.6：GA 6-12个月，小版本是偶数版<br>MySQL5.7：GA 6-12个月，小版本是偶数版，mysql5.7.20以上版本（MGR自带高可用）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132852351.png" alt="image-20230517132852351"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132906825.png" alt="image-20230517132906825"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132923806.png" alt="image-20230517132923806"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517133002055.png" alt="image-20230517133002055"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230517132934342.png" alt="image-20230517132934342"></p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><table>
+<thead>
+<tr>
+<th>主机名</th>
+<th>IP</th>
+<th>安装方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>db01</td>
+<td>10.0.0.51</td>
+<td>yum</td>
+</tr>
+<tr>
+<td>db02</td>
+<td>10.0.0.52</td>
+<td>5.6源码</td>
+</tr>
+<tr>
+<td>db03</td>
+<td>10.0.0.53</td>
+<td>5.6二进制</td>
+</tr>
+<tr>
+<td>db04</td>
+<td>10.0.0.54</td>
+<td>5.7二进制</td>
+</tr>
+</tbody></table>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.下载MySQL官方源</span></span><br><span class="line">wget https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.查看仓库中支持哪些MySQL安装包</span></span><br><span class="line">yum list|grep mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.修改yum仓库配置文件  // 关闭mysql80仓库 开启mysql57仓库</span></span><br><span class="line">root@db01,172.16.1.51:/etc/yum.repos.d <span class="comment"># vim mysql-community.repo</span></span><br><span class="line">[mysql57-community]</span><br><span class="line">name=MySQL 5.7 Community Server baseurl=http://repo.mysql.com/yum/mysql-5.7- </span><br><span class="line">community/el/7/<span class="variable">$basearch</span></span><br><span class="line">enabled=1 gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022</span><br><span class="line">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br><span class="line"></span><br><span class="line">[mysql80-community]</span><br><span class="line">name=MySQL 8.0 Community Server</span><br><span class="line">baseurl=http://repo.mysql.com/yum/mysql-8.0-</span><br><span class="line">community/el/7/<span class="variable">$basearch</span></span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022</span><br><span class="line">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.安装MySQL Server</span></span><br><span class="line">root@db01,172.16.1.51:/etc/yum.repos.d <span class="comment"># yum install -y mysql-server</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ll /var/lib/mysql/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.启动MySQL（自动初始化）</span></span><br><span class="line">root@db01,172.16.1.51:~ <span class="comment"># systemctl start mysqld</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6.MySQL5.7初始密码</span></span><br><span class="line">root@db01,172.16.1.51:~ <span class="comment"># cat /var/log/mysqld.log</span></span><br><span class="line">root@db01,172.16.1.51:~ <span class="comment"># grep &#x27;password&#x27; /var/log/mysqld.log</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 7.连接MySQL</span></span><br><span class="line">root@db01,172.16.1.51:~ <span class="comment">#  mysql -uroot -pfWeohr*IR2hm</span></span><br><span class="line"><span class="comment"># 8.修改密码</span></span><br><span class="line">alter user root@<span class="string">&#x27;localhost&#x27;</span> identified by <span class="string">&#x27;123@qqdaincom&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>下载5.7.40二进制和源码包</p>
+<p>下载5.6.50二进制和源码包</p>
+<p>5.6.50源码</p>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/23/file/mysql-5.6.50.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-5.6.50.tar.gz</a></p>
+<p>5.6.50二进制</p>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/23/file/mysql-5.6.50-linux-glibc2.12-x86_64.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-5.6.50-linux-glibc2.12-x86_64.tar.gz</a></p>
+<p>5.7.40源码</p>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-5.7.40.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-5.7.40.tar.gz</a></p>
+<p>5.7.40二进制</p>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.40-linux-glibc2.12-x86_64.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.40-linux-glibc2.12-x86_64.tar.gz</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://liqigg.github.io">LQ NBA</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://liqigg.github.io/2022/10/17/MySQL/Day01MySQL%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/">https://liqigg.github.io/2022/10/17/MySQL/Day01MySQL%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liqigg.github.io" target="_blank">男孩博客の李上网来</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mysql/">Mysql</a></div><div class="post_share"><div class="social-share" data-image="https://img1.baidu.com/it/u=2454297052,3299817823&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=870&amp;h=500" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wei.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wei.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhi.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zhi.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/17/MySQL/Day02MySQL%E6%BA%90%E7%A0%81%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E8%A3%85/" title="Mysql源码和二进制安装(2)"><img class="cover" src="https://img2.baidu.com/it/u=3585816123,2538702939&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=890&amp;h=500" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Mysql源码和二进制安装(2)</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/17/MySQL/Day04MySQL%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" title="Mysql用户权限及配置管理(4)"><img class="cover" src="https://img2.baidu.com/it/u=2932555699,4231549698&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=755&amp;h=500" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Mysql用户权限及配置管理(4)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/17/MySQL/Day02MySQL%E6%BA%90%E7%A0%81%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E8%A3%85/" title="Mysql源码和二进制安装(2)"><img class="cover" src="https://img2.baidu.com/it/u=3585816123,2538702939&fm=253&fmt=auto&app=138&f=JPEG?w=890&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">Mysql源码和二进制安装(2)</div></div></a></div><div><a href="/2022/10/17/MySQL/Day04MySQL%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" title="Mysql用户权限及配置管理(4)"><img class="cover" src="https://img2.baidu.com/it/u=2932555699,4231549698&fm=253&fmt=auto&app=138&f=JPEG?w=755&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">Mysql用户权限及配置管理(4)</div></div></a></div><div><a href="/2022/10/17/MySQL/Day03MySQL%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%AE%A1%E7%90%86/" title="Mysql体系结构管理(3)"><img class="cover" src="https://img1.baidu.com/it/u=4291658880,2257140618&fm=253&fmt=auto&app=138&f=JPEG?w=890&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">Mysql体系结构管理(3)</div></div></a></div><div><a href="/2022/10/17/MySQL/Day05MySQL%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%862/" title="Mysql用户权限及配置管理(5)"><img class="cover" src="https://img0.baidu.com/it/u=1258106405,1439669295&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">Mysql用户权限及配置管理(5)</div></div></a></div><div><a href="/2022/10/17/MySQL/Day07MySQL%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8Cselect%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" title="mysql字符集和select的高级用法(7)"><img class="cover" src="https://img2.baidu.com/it/u=4281423160,4076180479&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">mysql字符集和select的高级用法(7)</div></div></a></div><div><a href="/2022/10/17/MySQL/Day06MySQL%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%91%BD%E4%BB%A4%E5%8F%8ASOL%E8%AF%AD%E5%8F%A5/" title="MySQL客户端命令及SQL语句(6)"><img class="cover" src="https://img2.baidu.com/it/u=872945601,2569341895&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-17</div><div class="title">MySQL客户端命令及SQL语句(6)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81ODQ2NS8zNDkyOA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LQ NBA</div><div class="author-info__description">春来夏往，秋收冬藏，我们来日方长</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>谢谢关注</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/liqigg" target="_blank" title="Github"><i class="fab fa-github" style="color: ;"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: ;"></i></a><a class="social-icon" href="/liqigg.github.io" target="_blank" title="博客"><i class="fab fa-algolia"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到男孩的博客,让我们欲穷千里目，更上一层楼</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">MySQL介绍及安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBA%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9%E5%8F%8A%E8%AF%BE%E7%A8%8B%E4%BD%93%E7%B3%BB"><span class="toc-number">1.1.</span> <span class="toc-text">DBA工作内容及课程体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E8%AF%BE%E7%A8%8B%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">MySQL课程体系介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBA%E7%9A%84%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB"><span class="toc-number">1.3.</span> <span class="toc-text">DBA的职业素养</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%AE%89%E8%A3%85"><span class="toc-number">1.4.</span> <span class="toc-text">MySQL简介及安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">什么是数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.4.2.</span> <span class="toc-text">什么是数据库管理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.4.3.</span> <span class="toc-text">数据库系统种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDBMS%E4%B8%8ENoSQL%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.4.</span> <span class="toc-text">RDBMS与NoSQL对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%AE%89%E8%A3%85"><span class="toc-number">1.5.</span> <span class="toc-text">MySQL安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.1.</span> <span class="toc-text">MySQL安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.5.2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yum%E5%AE%89%E8%A3%85"><span class="toc-number">1.5.3.</span> <span class="toc-text">yum安装</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/01/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/" title="灵笼语录"><img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F1111%2Fa6ffbe62j00r2dbq8000sc000hs00dcc.jpg&amp;thumbnail=660x2147483647&amp;quality=80&amp;type=jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="灵笼语录"/></a><div class="content"><a class="title" href="/2023/03/01/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/%E5%9B%BE%E7%89%87%E5%90%8D%E5%AD%97/" title="灵笼语录">灵笼语录</a><time datetime="2023-02-28T17:17:00.000Z" title="发表于 2023-03-01 01:17:00">2023-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/linux/Day02bash%20shell%E7%9A%84%E7%89%B9%E6%80%A7/" title="Linux-bash shell的特性(3)"><img src="https://img1.baidu.com/it/u=3223953389,153560299&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=889&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-bash shell的特性(3)"/></a><div class="content"><a class="title" href="/2023/02/17/linux/Day02bash%20shell%E7%9A%84%E7%89%B9%E6%80%A7/" title="Linux-bash shell的特性(3)">Linux-bash shell的特性(3)</a><time datetime="2023-02-16T16:27:00.000Z" title="发表于 2023-02-17 00:27:00">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/linux/Day03%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="Linux-文件管理(4)"><img src="https://img0.baidu.com/it/u=4187856784,3148138647&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=801&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-文件管理(4)"/></a><div class="content"><a class="title" href="/2023/02/17/linux/Day03%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="Linux-文件管理(4)">Linux-文件管理(4)</a><time datetime="2023-02-16T16:27:00.000Z" title="发表于 2023-02-17 00:27:00">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/" title="Linux-bash初始(2)"><img src="https://img1.baidu.com/it/u=485435136,3540772286&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-bash初始(2)"/></a><div class="content"><a class="title" href="/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/" title="Linux-bash初始(2)">Linux-bash初始(2)</a><time datetime="2023-02-16T16:27:00.000Z" title="发表于 2023-02-17 00:27:00">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/linux/Day04%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%8F%8A%E7%B1%BB%E5%9E%8B/" title="Linux-属性及类型(5)"><img src="https://img2.baidu.com/it/u=1493749467,2267685402&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-属性及类型(5)"/></a><div class="content"><a class="title" href="/2023/02/17/linux/Day04%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%8F%8A%E7%B1%BB%E5%9E%8B/" title="Linux-属性及类型(5)">Linux-属性及类型(5)</a><time datetime="2023-02-16T16:27:00.000Z" title="发表于 2023-02-17 00:27:00">2023-02-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By LQ NBA</div><div class="footer_custom_text">人生若只如初见,何事秋风悲画扇</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="2936945004" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer data-pjax src="/js/cat.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="3089"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
