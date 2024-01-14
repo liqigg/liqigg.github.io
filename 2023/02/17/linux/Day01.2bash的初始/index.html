@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Linux-bash初始(2) | 🥝🥝男孩博客の李上网来🥝🥝</title><meta name="author" content="LQ NBA"><meta name="copyright" content="LQ NBA"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux"><meta property="og:type" content="article"><meta property="og:title" content="Linux-bash初始(2)"><meta property="og:url" content="https://liqigg.github.io/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/index.html"><meta property="og:site_name" content="🥝🥝男孩博客の李上网来🥝🥝"><meta property="og:description" content="Linux"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://img1.baidu.com/it/u=485435136,3540772286&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500"><meta property="article:published_time" content="2023-02-16T16:27:00.000Z"><meta property="article:modified_time" content="2023-05-12T04:21:16.822Z"><meta property="article:author" content="LQ NBA"><meta property="article:tag" content="Linux"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://img1.baidu.com/it/u=485435136,3540772286&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://liqigg.github.io/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LQ NBA","link":"链接: ","source":"来源: 🥝🥝男孩博客の李上网来🥝🥝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"Linux-bash初始(2)",isPost:!0,isHome:!1,isHighlightShrink:!0,isToc:!0,postUpdate:"2023-05-12 12:21:16"}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/cat.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tou.jpg" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(https://img1.baidu.com/it/u=485435136,3540772286&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500)"><nav id="nav"><span id="blog-info"><a href="/" title="🥝🥝男孩博客の李上网来🥝🥝"><span class="site-name">🥝🥝男孩博客の李上网来🥝🥝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-bash初始(2)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-16T16:27:00.000Z" title="发表于 2023-02-17 00:27:00">2023-02-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-12T04:21:16.822Z" title="更新于 2023-05-12 12:21:16">2023-05-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux%E4%BA%91%E8%AE%A1%E7%AE%97/">Linux云计算</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">457</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="Linux-bash初始(2)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[TOC]</p><h1 id="bash初始"><a href="#bash初始" class="headerlink" title="bash初始"></a>bash初始</h1><h2 id="bash-shell介绍"><a href="#bash-shell介绍" class="headerlink" title="bash shell介绍"></a>bash shell介绍</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bash Shell是一个命令解释器，它在操作系统的最外层，负责用户程序与内核进行交互操作的一种接口，讲用户输入的命令翻译给操作系统，并将处理后的结果输出至屏幕。</span><br><span class="line"></span><br><span class="line">当我们使用远程连接工具连接linux服务，系统则会打开一个默认的shell，我们可以在这个界面执行命令，比如：获取系统当前时间，创建一个用户等等...</span><br></pre></td></tr></table></figure><p><img src="C:\Users\李琪\AppData\Roaming\Typora\typora-user-images\image-20230228200840511.png" alt="image-20230228200840511"></p><h2 id="bash-shell的作用"><a href="#bash-shell的作用" class="headerlink" title="bash shell的作用"></a>bash shell的作用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">使用Shell实现对Linux系统的大部分管理，例如：</span><br><span class="line">1）文件管理</span><br><span class="line">2）权限管理</span><br><span class="line">3）用户管理</span><br><span class="line">4）磁盘管理</span><br><span class="line">5）网络管理</span><br><span class="line">6）软件管理</span><br><span class="line">7）应用管理</span><br><span class="line">...等等管理</span><br></pre></td></tr></table></figure><h2 id="bash-shell的执行方式"><a href="#bash-shell的执行方式" class="headerlink" title="bash shell的执行方式"></a>bash shell的执行方式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入命令方式 ===&gt; 效率低 ===&gt;适合少量工作</span></span><br><span class="line">useradd xxx</span><br><span class="line"><span class="comment"># shell script ===&gt; 效率高 ===&gt;适合复杂的工作</span></span><br><span class="line">sh useradd.sh</span><br><span class="line"></span><br><span class="line">~ = /root</span><br></pre></td></tr></table></figure><h2 id="shell命令提示符"><a href="#shell命令提示符" class="headerlink" title="shell命令提示符"></a>shell命令提示符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;$&#x27;</span> = 普通用户</span><br><span class="line"><span class="string">&#x27;#&#x27;</span> = root用户（超级管理员）</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看当前用户</span></span><br><span class="line">[root@db04 ~]<span class="comment"># whoami</span></span><br><span class="line">root</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看当前命令提示符</span></span><br><span class="line">[root@db04 ~]<span class="comment"># echo $PS1</span></span><br><span class="line">[\u@\h \W]\$</span><br><span class="line"> </span><br><span class="line">root:当前系统的用户</span><br><span class="line">db04:当前系统的主机名</span><br><span class="line">~:当前所在的位置</span><br><span class="line"><span class="comment">#:超级管理员身份（root用户）</span></span><br><span class="line">$:普通用户</span><br></pre></td></tr></table></figure><h2 id="修改命令提示符"><a href="#修改命令提示符" class="headerlink" title="修改命令提示符"></a>修改命令提示符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PS1</span></span><br><span class="line">[\u@\H \W \t]\$</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如何修改命令提示符</span></span><br><span class="line">vi .bashrc</span><br><span class="line">i 进入编辑模式</span><br><span class="line">最底下会有个</span><br><span class="line">-- INSERT --</span><br><span class="line"></span><br><span class="line">在<span class="keyword">fi</span>的下面插入要修改的命令提示符格式</span><br><span class="line">PS1=<span class="string">&#x27;\[\e[32;40m\] \[[\u@\h \w \t]\$ \[\e[0m\]&#x27;</span></span><br><span class="line">ESC保存退出</span><br><span class="line"><span class="built_in">source</span> .bashrc执行</span><br><span class="line"></span><br><span class="line"><span class="comment">#例子</span></span><br><span class="line">PS1=<span class="string">&#x27;\[\e[32;40m\] \[[\u@\h \w \t]\$ \[\e[0m\]&#x27;</span></span><br><span class="line">PS1=<span class="string">&quot;\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\\$ &quot;</span></span><br><span class="line">&#123;1&#125;</span><br><span class="line">PS1=<span class="string">&quot;\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\[\e[35;40m\]\h\[\e[0m\] \</span></span><br><span class="line"><span class="string">[\e[36;40m\]\w\[\e[0m\]]\\$ &quot;</span></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://liqigg.github.io">LQ NBA</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://liqigg.github.io/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/">https://liqigg.github.io/2023/02/17/linux/Day01.2bash%E7%9A%84%E5%88%9D%E5%A7%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liqigg.github.io" target="_blank">🥝🥝男孩博客の李上网来🥝🥝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://img1.baidu.com/it/u=485435136,3540772286&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wei.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wei.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhi.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zhi.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/01/%E6%96%87%E6%A1%A3/%E6%9C%80%E5%A5%BD%E7%9A%84%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F/" title="最好的生活方式"><img class="cover" src="https://img2.baidu.com/it/u=921368710,2540813219&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" onerror='onerror=null,src="/img/404.jpg"' alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">最好的生活方式</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/17/linux/Day02bash%20shell%E7%9A%84%E7%89%B9%E6%80%A7/" title="Linux-bash shell的特性(3)"><img class="cover" src="https://img1.baidu.com/it/u=3223953389,153560299&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=889&amp;h=500" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux-bash shell的特性(3)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/17/linux/Day02bash%20shell%E7%9A%84%E7%89%B9%E6%80%A7/" title="Linux-bash shell的特性(3)"><img class="cover" src="https://img1.baidu.com/it/u=3223953389,153560299&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux-bash shell的特性(3)</div></div></a></div><div><a href="/2023/02/17/linux/Day06Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/" title="Linux-用户管理(7)"><img class="cover" src="https://img1.baidu.com/it/u=1361858885,3050402171&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux-用户管理(7)</div></div></a></div><div><a href="/2023/02/17/linux/Day03%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="Linux-文件管理(4)"><img class="cover" src="https://img0.baidu.com/it/u=4187856784,3148138647&fm=253&fmt=auto&app=120&f=JPEG?w=801&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux-文件管理(4)</div></div></a></div><div><a href="/2023/02/17/linux/Day04%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E5%8F%8A%E7%B1%BB%E5%9E%8B/" title="Linux-属性及类型(5)"><img class="cover" src="https://img2.baidu.com/it/u=1493749467,2267685402&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux-属性及类型(5)</div></div></a></div><div><a href="/2023/02/17/linux/Day05vim%E7%BC%96%E8%BE%91/" title="Linux-vim编辑(6)"><img class="cover" src="https://img0.baidu.com/it/u=3447271797,934647191&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux-vim编辑(6)</div></div></a></div><div><a href="/2023/02/17/linux/Day1.1Linux%E4%BB%8B%E7%BB%8D/" title="Linux介绍(1)"><img class="cover" src="https://img0.baidu.com/it/u=2264574072,590289618&fm=253&fmt=auto?w=1423&h=800" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">Linux介绍(1)</div></div></a></div></div></div><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81ODQ2NS8zNDkyOA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">LQ NBA</div><div class="author-info__description">世间万物皆可期，唯有岁月不负人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>春风十里不如你</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/liqigg.github.io" target="_blank" title="博客"><i class="fab fa-algolia"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">😍😍😍有你的地方便有暖阳ʕ•̫͡• ʔ•̫͡•ཻʕ•̫͡•ʔ•͓͡•ʔ ᕙ(•̤᷆ ॒ ູ॒•̤᷇)ᕘ欢迎来到男孩的博客💨💨😍😍</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#bash%E5%88%9D%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">bash初始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bash-shell%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">bash shell介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash-shell%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">bash shell的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash-shell%E7%9A%84%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">bash shell的执行方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="toc-number">1.4.</span> <span class="toc-text">shell命令提示符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="toc-number">1.5.</span> <span class="toc-text">修改命令提示符</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/21/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%94%E8%AF%AD%E5%BD%951/" title="我们都不善表达心里都藏着真话"><img src="https://img0.baidu.com/it/u=3381663725,3300453006&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=480&amp;h=800" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="我们都不善表达心里都藏着真话"></a><div class="content"><a class="title" href="/2023/12/21/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%94%E8%AF%AD%E5%BD%951/" title="我们都不善表达心里都藏着真话">我们都不善表达心里都藏着真话</a><time datetime="2023-12-20T16:36:00.000Z" title="发表于 2023-12-21 00:36:00">2023-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/20/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%942/" title="关于认知--罗翔"><img src="https://img1.baidu.com/it/u=52266746,3693313216&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=581" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于认知--罗翔"></a><div class="content"><a class="title" href="/2023/12/20/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%942/" title="关于认知--罗翔">关于认知--罗翔</a><time datetime="2023-12-19T16:36:00.000Z" title="发表于 2023-12-20 00:36:00">2023-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/19/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%943/" title="关于爱--罗翔"><img src="https://img1.baidu.com/it/u=3953261862,2637615425&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=500" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于爱--罗翔"></a><div class="content"><a class="title" href="/2023/12/19/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%943/" title="关于爱--罗翔">关于爱--罗翔</a><time datetime="2023-12-18T16:36:00.000Z" title="发表于 2023-12-19 00:36:00">2023-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%94%B7%E5%AD%A9%E6%96%87%E6%A1%884/" title="闻神emo文案"><img src="https://img1.baidu.com/it/u=113549435,2348208623&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="闻神emo文案"></a><div class="content"><a class="title" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%94%B7%E5%AD%A9%E6%96%87%E6%A1%884/" title="闻神emo文案">闻神emo文案</a><time datetime="2023-12-16T16:36:00.000Z" title="发表于 2023-12-17 00:36:00">2023-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%944/" title="关于生活--罗翔"><img src="https://img2.baidu.com/it/u=1654646901,632977518&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=500" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于生活--罗翔"></a><div class="content"><a class="title" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%944/" title="关于生活--罗翔">关于生活--罗翔</a><time datetime="2023-12-16T16:36:00.000Z" title="发表于 2023-12-17 00:36:00">2023-12-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By LQ NBA</div><div class="footer_custom_text">人生若只如初见,何事秋风悲画扇</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="8450263471" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="3089"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/shizuku.model.json"},display:{position:"right",width:150,height:300,hOffset:-15,vOffset:-15},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

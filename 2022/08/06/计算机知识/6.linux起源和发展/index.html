@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Linux起源和发展 | 🥝🥝男孩博客の李上网来🥝🥝</title><meta name="author" content="LQ NBA"><meta name="copyright" content="LQ NBA"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1分钟了解Linux云计算"><meta property="og:type" content="article"><meta property="og:title" content="Linux起源和发展"><meta property="og:url" content="https://liqigg.github.io/2022/08/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/6.linux%E8%B5%B7%E6%BA%90%E5%92%8C%E5%8F%91%E5%B1%95/index.html"><meta property="og:site_name" content="🥝🥝男孩博客の李上网来🥝🥝"><meta property="og:description" content="1分钟了解Linux云计算"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://img1.baidu.com/it/u=3937386289,2394506550&fm=253&fmt=auto&app=138&f=JPG?w=500&h=281"><meta property="article:published_time" content="2022-08-05T16:27:00.000Z"><meta property="article:modified_time" content="2022-08-05T16:27:00.000Z"><meta property="article:author" content="LQ NBA"><meta property="article:tag" content="Linux起源、GNU和GPL"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://img1.baidu.com/it/u=3937386289,2394506550&fm=253&fmt=auto&app=138&f=JPG?w=500&h=281"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://liqigg.github.io/2022/08/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/6.linux%E8%B5%B7%E6%BA%90%E5%92%8C%E5%8F%91%E5%B1%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LQ NBA","link":"链接: ","source":"来源: 🥝🥝男孩博客の李上网来🥝🥝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"Linux起源和发展",isPost:!0,isHome:!1,isHighlightShrink:!0,isToc:!0,postUpdate:"2022-08-06 00:27:00"}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/cat.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tou.jpg" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(https://img1.baidu.com/it/u=3937386289,2394506550&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG?w=500&amp;h=281)"><nav id="nav"><span id="blog-info"><a href="/" title="🥝🥝男孩博客の李上网来🥝🥝"><span class="site-name">🥝🥝男孩博客の李上网来🥝🥝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux起源和发展</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-05T16:27:00.000Z" title="发表于 2022-08-06 00:27:00">2022-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-05T16:27:00.000Z" title="更新于 2022-08-06 00:27:00">2022-08-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="Linux起源和发展"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux起源和发展"><a href="#Linux起源和发展" class="headerlink" title="Linux起源和发展"></a>Linux起源和发展</h1><h2 id="一、什么是linux？"><a href="#一、什么是linux？" class="headerlink" title="一、什么是linux？"></a>一、什么是linux？</h2><p><strong>Linux是一套免费使用和自由传播的类Unix操作系统</strong>，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。伴随着互联网的发展，Linux得到了来自全世界软件爱好者、组织、公司的支持。它除了在服务器操作系统方面保持着强劲的发展势头以外，在个人电脑、嵌入式系统上都有着长足的进步。使用者不仅可以直观地获取该操作系统的实现机制，而且可以根据自身的需要来修改完善这个操作系统，使其最大化地适应用户的需要。</p><p><strong>Linux系统应用</strong><br>Linux不仅系统性能稳定，而且是开源软件。其核心防火墙组件性能高效、配置简单，保证了系统的安全。在很多企业网络中，为了追求速度和安全，Linux操作系统不仅仅是被网络运维人员当作服务器使用，Linux既可以当作服务器，又可以当作网络防火墙是Linux的 一大亮点。</p><p><strong>linux优点</strong><br>Linux与其他操作系统相比 ，具有开放源码、没有版权、技术社区用户多等特点 ，开放源码使得用户可以自由裁剪，灵活性高，功能强大，成本低。尤其系统中内嵌网络协议栈 ，经过适当的配置就可实现路由器的功能。这些特点使得Linux成为开发路由交换设备的理想开发平台。</p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927083239033.png" alt="image-20230927083239033"></p><h2 id="二、Linux的起源"><a href="#二、Linux的起源" class="headerlink" title="二、Linux的起源"></a>二、Linux的起源</h2><p>Linux操作系统的诞生、发展和成长过程始终依赖着五个重要支柱：</p><ul><li>Unix操作系统</li><li>MINIX操作系统</li><li>GNU计划</li><li>POSIX标准</li><li>Internet网络。</li></ul><p>20世纪80年代，计算机硬件的性能不断提高，PC的市场不断扩大，当时可供计算机选用的操作系统主要有Unix、DOS和MacOS这几种。Unix价格昂贵，不能运行于PC；DOS显得简陋，且源代码被软件厂商严格保密；<br>MacOS是一种专门用于苹果计算机的操作系统。此时，计算机科学领域迫切需要一个更加完善、强大、廉价和完全开放的操作系统。由于供教学使用的典型操作系统很少，因此当时在荷兰当教授的美国人AndrewS.Tanenbaum编写了一个操作系统，名为MINIX，为了向学生讲述操作系统内部工作原理。MINIX虽然很好，但只是一个用于教学目的的简单操作系统，而不是一个强有力的实用操作系统，然而最大的好处就是公开源代码。全世界学计算机的学生都通过钻研MINIX源代码来了解电脑里运行的MINIX操作系统，芬兰赫尔辛基大学大学二年级的学生Linus Torvalds就是其中一个，在吸收了MINIX精华的基础上，Linus于1991年写出了属于自己的Linux操作系统，版本为Linux0.01，是Linux时代开始的标志。他利用Unix的核心，去除繁杂的核心程序，改写成适用于一般计算机的x86系统，并放在网络上供大家下载，1994年推出完整的核心Version1.0，至此，Linux逐渐成为功能完善、稳定的操作系统，并被广泛使用。</p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927083251190.png" alt="image-20230927083251190"></p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927083300484.png" alt="image-20230927083300484"></p><h2 id="三、Linux的发展史"><a href="#三、Linux的发展史" class="headerlink" title="三、Linux的发展史"></a>三、Linux的发展史</h2><p>1984年，Andrew S.Tanenbaum开发了用于教学的UNIX系统，命名为Mininx。</p><p>1989年，Andrew S.Tanenbaum将Minix系统运行于x86的PC平台。</p><p>1990年，芬兰赫尔辛基大学学生Linux Torvalds首次接触Minix系统。</p><p>1991年，Linux Torvalds开始在Minix上编写各种驱动程序等操作系统内核组件。</p><p>1991年年底，Linux Torvalds公开了Linux内核源码0.02版</p><p>1994年，Linux 1.0版本发布</p><p>1996年，Linux 2.0版本发布</p><p>2011年，Linux3.0版本发布</p><p>这里面我们所介绍的发布时间，指的都是内核大版本的发布时间，次要版本号更新时间请参看FAQ，其中偶数版的内核为稳定版，奇数版的内核为开发版或测试版</p><h2 id="四、Linux和Unix的对比"><a href="#四、Linux和Unix的对比" class="headerlink" title="四、Linux和Unix的对比"></a>四、Linux和Unix的对比</h2><p>我们所讨论的差异只从硬件支持，版权和价格这些来讨论他们之间的区别，UNIX是一个功能强大、性能全面的多用户、多任务操作系统，可以应用从巨型计算机到普通PC机等多种不同的平台上，是应用面最广、影响力最大的操作系统。</p><ul><li>Linux是一种外观和性能与UNIX相同或更好的操作系统，但Linux不源于任何版本的UNIX的源代码，并不是UNIX，而是一个类似于UNIX的产品。</li><li>Linux是开发源代码的自由软件,UNIX是对源代码实行知识产权保护的传统商业软件.</li><li>UNIX系统大多是与硬件配套的,而Linux则可运行在多种硬件平台上.</li><li>UNIX是商业软件，需要收费,而Linux是自由软件,免费、公开源代码的</li><li>在对硬件的要求上,linux比unix要低,没有unix那么苛刻.在安装上linux比unix容易掌握.</li></ul><h2 id="五、类Unix操作系统介绍"><a href="#五、类Unix操作系统介绍" class="headerlink" title="五、类Unix操作系统介绍"></a>五、类Unix操作系统介绍</h2><ul><li>什么是类Unix操作系统？</li></ul><p>类Unix系统（英文：Unix-like）是指继承UNIX的设计风格演变出来的系统，这些操作系统虽然有的是自由软件，有的是商业软件，但都相当程度地继承了原始UNIX的特性，有许多相似处，并且都在一定程度上遵守POSIX规范，但是它们却并不含有UNIX的源代码。由于UNIX标准认定价格昂贵，所以目前唯一获得UNIX标准认定的为苹果的MACOS系统。</p><ul><li>类Unix操作系统有哪些？</li></ul><p>FreeBSD及其衍生产品、OpenBSD及其衍生产品、GNU&#x2F;Linux、GNU&#x2F;OpenSolaris等等，这里面我们所介绍的几种主流的类Unix操作系统，他们大多都属于开源产品，在互联网上是可以获取到的，有兴趣的同学可以自行搜索并下载安装</p><p>并且接触到了一个概念叫做“类Unix操作系统”，也知道了这个类Unix操作系统的家族非常庞大。</p><h2 id="六、linux厂商"><a href="#六、linux厂商" class="headerlink" title="六、linux厂商"></a>六、linux厂商</h2><p>真实因为GPL,很多公司基于linux的源码进行修改、优化后推出了自己的产品，其中最著名的就是redhat，其实每个国家都有自己的linux系统，比如中国最早的红旗linux，现在的中科麒麟、深度，都是linux系统.企业通过收取技术服务费来进行盈利。</p><h2 id="七、linux的应用"><a href="#七、linux的应用" class="headerlink" title="七、linux的应用"></a>七、linux的应用</h2><p>100% 的世界超级计算机跑在 Linux 上。包括 NASA 的集群。</p><p>SpaceX 在其灰背隼火箭引擎上使用具有特殊容错设计的 Linux。借此，Linux 帮助完成了 32 次航天任务。 埃隆·马斯克 特斯拉</p><p>电影泰坦尼克是首个基于 Linux 服务器拍摄的电影。</p><p>即使 Linux 的最大的竞争操作系统微软 Windows 也拥抱 Linux。Windows 最近集成了 Ubuntu Bash 到 Windows 10 里了。</p><h2 id="八、视频学习"><a href="#八、视频学习" class="headerlink" title="八、视频学习"></a>八、视频学习</h2><p><a target="_blank" rel="noopener" href="https://www.ixigua.com/6906825528561369608?is_new_connect=0&is_new_user=0">视频：linux介绍</a><br><a target="_blank" rel="noopener" href="https://www.ixigua.com/6906835360559727111?id=6906825493740257804&logTag=40b7533f87d8f1a8cc8d">视频：linux起源</a></p><h1 id="GNU和GPL"><a href="#GNU和GPL" class="headerlink" title="GNU和GPL"></a>GNU和GPL</h1><h2 id="一、GNU介绍"><a href="#一、GNU介绍" class="headerlink" title="一、GNU介绍"></a>一、GNU介绍</h2><p><strong>GNU</strong>是一个自由的操作系统，其内容软件完全以GPL方式发布。这个操作系统是GNU计划的主要目标，名称来自GNU’s Not Unix!的缩写，因为GNU的设计类似Unix，但它不包含具著作权的Unix代码。GNU的创始人，理查德·马修·斯托曼。</p><p>作为操作系统，GNU的发展仍未完成，其中最大的问题是具有完备功能的内核尚未被开发成功。GNU的内核是自由软件基金会发展的重点，但是其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。Linux操作系统包涵了Linux内核与其他自由软件项目中的GNU组件和软件，可以被称为GNU&#x2F;Linux。</p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927084309978.png" alt="image-20230927084309978"></p><p>1985年Richard Stallman又创立了自由软件基金会来为GNU计划提供技术、法律以及财政支持。尽管GNU计划大部分时候是由个人自愿无偿贡献，但FSF有时还是会聘请程序员帮助编写。当GNU计划开始逐渐获得成功时，一些商业公司开始介入开发和技术支持。</p><p>到了1990年，GNU计划已经开发出的软件包括了一个功能强大的文字编辑器Emacs。GCC（GNU Compiler Collection，GNU编译器集合），是一套由 GNU 开发的编程语言编译器。以及大部分UNIX系统的程序库和工具。唯一依然没有完成的重要组件就是操作系统的内核。</p><p>1991年Linus Torvalds编写出了与UNIX兼容的Linux操作系统内核并在GPL条款下发布。Linux之后在网上广泛流传，许多程序员参与了开发与修改。1992年Linux与其他GNU软件结合，完全自由的操作系统正式诞生。该操作系统往往被称为“GNU&#x2F;Linux”或简称Linux。许多UNIX系统上也安装了GNU软件，因为GNU软件的质量比之前UNIX的软件还要好。GNU工具还被广泛地移植到Windows和Mac OS上。</p><h2 id="理查德·马修·斯托曼"><a href="#理查德·马修·斯托曼" class="headerlink" title="理查德·马修·斯托曼"></a>理查德·马修·斯托曼</h2><p>理查德·马修·斯托曼（英语：Richard Matthew Stallman，简称rms，有时也用大写的RMS，1953年3月16日－），美国程序员，自由软件活动家。他发起自由软件运动，倡导软件用户能够对软件自由进行使用、学习、共享和修改，确保了这些软件被称作自由软件。斯托曼发起了GNU项目，并成立了自由软件基金会。他开发了GCC、GDB、GNU Emacs，同时编写了GNU通用公共许可协议。</p><p>为了创建一个完全由免费软件组成的类Unix计算机操作系统，斯托曼在1983年9月推出了GNU项目。借此又发起了自由软件运动。他迄今为止一直是GNU项目的组织者，作为主要开发者的他开发了一些被广泛使用的GNU软件。在1985年10月他创立了自由软件基金会。</p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927084328635.png" alt="image-20230927084328635"></p><p><img src="https://cdn.jsdelivr.net/gh/liqigg/picgo/img/image-20230927084335686.png" alt="image-20230927084335686"></p><h2 id="二、自由软件基金会介绍"><a href="#二、自由软件基金会介绍" class="headerlink" title="二、自由软件基金会介绍"></a>二、自由软件基金会介绍</h2><p><strong>自由软件基金会</strong>（英语：<strong>Free Software Foundation</strong>，<strong>FSF</strong>）是一个致力于推广自由软件的美国民间非营利性组织。它于1985年10月由理查德·斯托曼创建。其主要工作是运行GNU计划，开发更多的自由软件。</p><p>从其创建到1990年代中自由软件基金会的基金主要被用来雇佣编程师来发展自由软件。从1990年代中开始写自由软件的公司和个人繁多，因此自由软件基金会的雇员和志愿者主要在自由软件运动的法律和结构问题上工作。</p><p><strong>主要工作</strong>：</p><ul><li>GNU</li></ul><p>自由软件基金会最早的目的在于促进自由软件的开发，但自由软件基金会也有自己的GUN项目</p><ul><li>发布并管理许可证</li></ul><p>自由软件基金会具有发布GNU通用公共许可证和其它GNU许可证的能力和资源，但自由软件基金会只对它拥有版权的软件负责。其它软件必须由它们自己的拥有人来负责</p><ul><li>GNU许可证</li></ul><p>GNU通用公共许可证是自由软件工程中最普及的许可证。目前的版本是2007年发表的。自由软件基金会还发布了GNU宽通用公共许可证和GNU自由文档许可证</p><ul><li>监督版权</li></ul><p>自由软件基金会拥有大多数GNU软件和一些非GNU自由软件的版权。每个GNU软件包的贡献者必须签署版权文件，这样自由软件基金会可以在诉讼案中在法庭上维护这些软件。此外这样假如许可证有所变化的话不必征求软件所有的贡献者的同意。</p><ul><li>自由软件目录</li></ul><p>自由软件目录是所有自由软件包的一个列表。其中列出的每个软件包含47条信息，比如工程的主页、程序师、编程语言等。目的是提供一个自由软件的搜索引擎和为用户提供一个检查一个软件包是否自由的工具。自由软件基金会为此从联合国教科文组织获得少数基金。计划是将来这个目录可以翻译成不同的语言。</p><ul><li>颁发奖励</li></ul><p>自由软件基金会每年颁发两部奖励：自由软件进步大奖和社会福利自由软件奖励。</p><h2 id="三、GPL介绍"><a href="#三、GPL介绍" class="headerlink" title="三、GPL介绍"></a>三、GPL介绍</h2><p><strong>GNU</strong>通用公共许可协议（英语：GNU General Public License，缩写GNU GPL 或 GPL），是被广泛使用的自由软件许可证，给予了终端用户运行、学习、共享和修改软件的自由。许可证最初由自由软件基金会的理查德·斯托曼为GNU项目所撰写，并授予计算机程序的用户自由软件定义的权利。GPL是一个Copyleft许可证，这意味着派生作品只能以相同的许可条款分发。 GPL是第一个普遍使用的Copyleft许可证。历史上，GPL许可证系列一直是自由和开源软件领域最受欢迎的软件许可之一。</p><h2 id="GPL历史"><a href="#GPL历史" class="headerlink" title="GPL历史"></a>GPL历史</h2><p>GPLv1：GPL版本1，即最初的版本，发布于1989年一月</p><p>GPLv2：发布于1991年6月，这个版本一直延续到1999年，并分支出一个派生的LGPL版本号为2.1，并将其重命名为轻量级通用公共许可证（又称宽通用公共许可证）</p><p>GPLv3：2007年6月29日正式发布</p></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://liqigg.github.io">LQ NBA</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://liqigg.github.io/2022/08/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/6.linux%E8%B5%B7%E6%BA%90%E5%92%8C%E5%8F%91%E5%B1%95/">https://liqigg.github.io/2022/08/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/6.linux%E8%B5%B7%E6%BA%90%E5%92%8C%E5%8F%91%E5%B1%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liqigg.github.io" target="_blank">🥝🥝男孩博客の李上网来🥝🥝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux%E8%B5%B7%E6%BA%90%E3%80%81GNU%E5%92%8CGPL/">Linux起源、GNU和GPL</a></div><div class="post_share"><div class="social-share" data-image="https://img1.baidu.com/it/u=3937386289,2394506550&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG?w=500&amp;h=281" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wei.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wei.jpg" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhi.jpg" target="_blank"><img class="post-qr-code-img" src="/img/zhi.jpg" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/7.%E5%90%84%E5%8F%91%E8%A1%8C%E7%89%88Linux%E4%BB%8B%E7%BB%8D/" title="各发行版Linux介绍"><img class="cover" src="https://img1.baidu.com/it/u=3134585937,1807364808&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=500" onerror='onerror=null,src="/img/404.jpg"' alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">各发行版Linux介绍</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86/5.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D/" title="计算机操作系统"><img class="cover" src="https://img0.baidu.com/it/u=2887432057,4040343948&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=808&amp;h=500" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机操作系统</div></div></a></div></nav><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81ODQ2NS8zNDkyOA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">LQ NBA</div><div class="author-info__description">世间万物皆可期，唯有岁月不负人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">89</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>春风十里不如你</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/liqigg.github.io" target="_blank" title="博客"><i class="fab fa-algolia"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">😍😍😍有你的地方便有暖阳ʕ•̫͡• ʔ•̫͡•ཻʕ•̫͡•ʔ•͓͡•ʔ ᕙ(•̤᷆ ॒ ູ॒•̤᷇)ᕘ欢迎来到男孩的博客💨💨😍😍</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E8%B5%B7%E6%BA%90%E5%92%8C%E5%8F%91%E5%B1%95"><span class="toc-number">1.</span> <span class="toc-text">Linux起源和发展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFlinux%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">一、什么是linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux%E7%9A%84%E8%B5%B7%E6%BA%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、Linux的起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Linux%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">1.3.</span> <span class="toc-text">三、Linux的发展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Linux%E5%92%8CUnix%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.</span> <span class="toc-text">四、Linux和Unix的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%B1%BBUnix%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.5.</span> <span class="toc-text">五、类Unix操作系统介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81linux%E5%8E%82%E5%95%86"><span class="toc-number">1.6.</span> <span class="toc-text">六、linux厂商</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81linux%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.7.</span> <span class="toc-text">七、linux的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.8.</span> <span class="toc-text">八、视频学习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GNU%E5%92%8CGPL"><span class="toc-number">2.</span> <span class="toc-text">GNU和GPL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81GNU%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">一、GNU介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E9%A9%AC%E4%BF%AE%C2%B7%E6%96%AF%E6%89%98%E6%9B%BC"><span class="toc-number">2.2.</span> <span class="toc-text">理查德·马修·斯托曼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%87%AA%E7%94%B1%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.</span> <span class="toc-text">二、自由软件基金会介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81GPL%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.</span> <span class="toc-text">三、GPL介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPL%E5%8E%86%E5%8F%B2"><span class="toc-number">2.5.</span> <span class="toc-text">GPL历史</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/21/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%94%E8%AF%AD%E5%BD%951/" title="我们都不善表达心里都藏着真话"><img src="https://img0.baidu.com/it/u=3381663725,3300453006&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=480&amp;h=800" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="我们都不善表达心里都藏着真话"></a><div class="content"><a class="title" href="/2023/12/21/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%94%E8%AF%AD%E5%BD%951/" title="我们都不善表达心里都藏着真话">我们都不善表达心里都藏着真话</a><time datetime="2023-12-20T16:36:00.000Z" title="发表于 2023-12-21 00:36:00">2023-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/20/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%942/" title="关于认知--罗翔"><img src="https://img1.baidu.com/it/u=52266746,3693313216&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=581" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于认知--罗翔"></a><div class="content"><a class="title" href="/2023/12/20/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%942/" title="关于认知--罗翔">关于认知--罗翔</a><time datetime="2023-12-19T16:36:00.000Z" title="发表于 2023-12-20 00:36:00">2023-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/19/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%943/" title="关于爱--罗翔"><img src="https://img1.baidu.com/it/u=3953261862,2637615425&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=500" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于爱--罗翔"></a><div class="content"><a class="title" href="/2023/12/19/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%943/" title="关于爱--罗翔">关于爱--罗翔</a><time datetime="2023-12-18T16:36:00.000Z" title="发表于 2023-12-19 00:36:00">2023-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%94%B7%E5%AD%A9%E6%96%87%E6%A1%884/" title="闻神emo文案"><img src="https://img1.baidu.com/it/u=113549435,2348208623&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1422&amp;h=800" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="闻神emo文案"></a><div class="content"><a class="title" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%94%B7%E5%AD%A9%E6%96%87%E6%A1%884/" title="闻神emo文案">闻神emo文案</a><time datetime="2023-12-16T16:36:00.000Z" title="发表于 2023-12-17 00:36:00">2023-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%944/" title="关于生活--罗翔"><img src="https://img2.baidu.com/it/u=1654646901,632977518&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=500" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="关于生活--罗翔"></a><div class="content"><a class="title" href="/2023/12/17/%E6%96%87%E6%A1%A3/%E7%BD%97%E7%BF%944/" title="关于生活--罗翔">关于生活--罗翔</a><time datetime="2023-12-16T16:36:00.000Z" title="发表于 2023-12-17 00:36:00">2023-12-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By LQ NBA</div><div class="footer_custom_text">人生若只如初见,何事秋风悲画扇</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="8450263471" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="3089"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/shizuku.model.json"},display:{position:"right",width:150,height:300,hOffset:-15,vOffset:-15},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>
